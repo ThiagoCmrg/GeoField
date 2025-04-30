@@ -48,3 +48,24 @@ for _, row in tabela_cidades.iterrows():
             fill_opacity=0.7,
             popup=f"Código da Instalação: {codigo_instalacao}",
         ).add_to(marker_cluster_eqps)
+
+
+# Marcadores vermelhos pequenos (Por cada instalação)
+for _, row in tabela_cidades.iterrows():
+    codigo_instalacao = row.get('Código', 'Código Indisponível')
+    lat_eq = row.get('Coordenadas.Latitude')
+    lon_eq = row.get('Coordenadas.Longitude')
+
+    if pd.notnull(lat_eq) and pd.notnull(lon_eq):
+        folium.CircleMarker(
+            location=[lat_eq, lon_eq],
+            radius=3,
+            color='red',
+            fill=True,
+            fill_color='red',
+            fill_opacity=0.3,
+
+            popup=f"Código da Instalação: {codigo_instalacao}"
+        ).add_to(mapa_brasil)
+
+mapa_brasil
