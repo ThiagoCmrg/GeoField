@@ -28,3 +28,23 @@ for _, row in tabela_tecnicos.iterrows():
             popup=f"Técnico: {nome_tec}",
             icon=folium.Icon(color='blue', icon='user', prefix='fa')
         ).add_to(mapa_brasil)
+
+
+# Marcadores das Médias (Instalações)
+marker_cluster_eqps = MarkerCluster().add_to(mapa_brasil)
+for _, row in tabela_cidades.iterrows():
+    codigo_instalacao = row.get('Código', 'Código Indisponível')
+    lat_eq = row.get('Coordenadas.Latitude')
+    lon_eq = row.get('Coordenadas.Longitude')
+    nome_cidade = row.get('Cidade', 'Instalação')
+
+    if pd.notnull(lat_eq) and pd.notnull(lon_eq):
+        folium.CircleMarker(
+            location=[lat_eq, lon_eq],
+            radius=5,
+            color='red',
+            fill=True,
+            fill_color='red',
+            fill_opacity=0.7,
+            popup=f"Código da Instalação: {codigo_instalacao}",
+        ).add_to(marker_cluster_eqps)
