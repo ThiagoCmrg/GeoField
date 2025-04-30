@@ -1,3 +1,6 @@
+##Substitua o caminho do arquivo pelo caminho do seu arquivo Excel com as coordenadas de localização das instalações e técnicos. 
+##Amanhã botarei um exemplo para visualizar o mapa.
+
 import pandas as pd
 import folium
 from folium.plugins import MarkerCluster
