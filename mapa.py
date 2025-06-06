@@ -5,8 +5,8 @@ import pandas as pd
 import folium
 from folium.plugins import MarkerCluster
 
-tabela_cidades= pd.read_excel('Caminho_Arquivo.xlsx')  ## Substitua pelo caminho do seu arquivo
-tabela_tecnicos= pd.read_excel('Caminho_Arquivo.xlsx')   ## Substitua pelo caminho do seu arquivo
+tabela_cidades= pd.read_excel('data/instalacoes_ficitio.xlsx')  ## Substitua pelo caminho do seu arquivo
+tabela_tecnicos= pd.read_excel('data/tecnicos_ficticio.xlsx')   ## Substitua pelo caminho do seu arquivo
 
 
 mapa_brasil = folium.Map(location=[-14.2350, -51.9253], zoom_start=3) #Zoom inicial do mapa
@@ -71,4 +71,4 @@ for _, row in tabela_cidades.iterrows():
             popup=f"Código da Instalação: {codigo_instalacao}"
         ).add_to(mapa_brasil)
 
-mapa_brasil
+mapa_brasil.save("static/mapa_tecnicos_html")
