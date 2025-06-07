@@ -8,7 +8,7 @@ from folium.plugins import MarkerCluster
 tabela_cidades= pd.read_excel('data/instalacoes_ficticio.xlsx')  ## Substitua pelo caminho do seu arquivo
 tabela_tecnicos= pd.read_excel('data/tecnicos_ficticio.xlsx')   ## Substitua pelo caminho do seu arquivo
 
-
+##a
 mapa_brasil = folium.Map(location=[-14.2350, -51.9253], zoom_start=3) #Zoom inicial do mapa
 # Marcador para Técnicos
 for _, row in tabela_tecnicos.iterrows():
